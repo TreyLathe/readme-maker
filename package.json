@@ -1,0 +1,22 @@
+{
+  "name": "readme-maker",
+  "version": "1.0.0",
+  "description": "npm for module 9",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TreyLathe/readme-maker.git"
+  },
+  "author": "Trey Lathe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TreyLathe/readme-maker/issues"
+  },
+  "homepage": "https://github.com/TreyLathe/readme-maker#readme",
+  "dependencies": {
+    "inquirer": "^6.5.0"
+  }
+}
