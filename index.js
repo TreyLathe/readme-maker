@@ -5,58 +5,57 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 
-inquirer
-  .prompt([
+const questions =[
     { 
       type: 'input',
-      name: 'github:',
-      message: 'What is your github username??',
+      name: 'github',
+      message: 'What is your github username?',
     },
     { 
       type: 'input',
-      name: 'email:',
+      name: 'email',
       message: 'What is your email?',
     },
     { 
       type: 'input',
-      name: 'Project:',
+      name: 'project',
       message: 'What is the name of your project?',
     },
     {
       type: 'input',
-      name: 'Description',
+      name: 'description',
       message: 'Describe your project.',
     },
     {
       type: 'input',
-      name: 'Installation',
+      name: 'installation',
       message: 'How do you install dependencies?'
       
     },
     {
       type: 'input',
-      name: 'Usage',
+      name: 'usage',
       message: 'How does the user use the repository?',
     },
     {
       type: 'input',
-      name: 'Contributing',
+      name: 'contribute',
       message: 'How would a user contribute to the project?',
     },
     {
       type: 'input',
-      name: 'Tests',
+      name: 'test',
       message: 'How is a test run?',
     },
 
     {
       type: 'list',
-      name: 'License',
+      name: 'license',
       message: 'Which license would you like to apply?',
       choices: ["license1","license2","license3", "license4"],
     },
 
-  ])
+  ]
 
 
 // TODO: Create a function to write README file
@@ -74,11 +73,3 @@ function init() {
 
 // Function call to initialize app
 init();
-  // .then((response) => {
-  //   const filename = `${response.title.toLowerCase().split(' ').join('')}.json`;
-
-  //   fs.writeFile(filename, JSON.stringify(response, null, '\t'), (err) =>
-  //   err ? console.log(err) : console.log('Success!')
-  //   );
-  
-  // });
