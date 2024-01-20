@@ -1,10 +1,10 @@
+//required variables for path to markdown, inquirer etc
 const path = require('path');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
-
+// array of questions for user input
 const questions =[
     { 
       type: 'input',
@@ -39,6 +39,11 @@ const questions =[
     },
     {
       type: 'input',
+      name: 'credits',
+      message: 'Who should be credited for this work?',
+    },
+    {
+      type: 'input',
       name: 'contribute',
       message: 'How would a user contribute to the project?',
     },
@@ -52,18 +57,18 @@ const questions =[
       type: 'list',
       name: 'license',
       message: 'Which license would you like to apply?',
-      choices: ["license1","license2","license3", "license4"],
+      choices: ["Apache","MIT","Boost", "Mozilla"],
     },
 
   ]
 
 
-// TODO: Create a function to write README file
+// Function to create a readme file
 function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
-// TODO: Create a function to initialize app
+// initialize app
 function init() {
   inquirer.prompt(questions).then((inquirerResponses) => {
   console.log("Creating the README...");

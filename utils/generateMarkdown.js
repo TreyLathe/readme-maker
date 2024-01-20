@@ -1,31 +1,53 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
 
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
+//function creates a badge for the user's chosen license
+function renderLicenseBadge(license) {
+  if (!license || license === 'None') {
+    return '';
+  }
+  const badgeURL = `https://img.shields.io/badge/license-${encodeURIComponent(license)}-blue.svg`;
+  return `![License Badge](${badgeURL})`;}
 
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+//function creates a link to the chosen license, future work
+// function renderLicenseLink(license) {
+//   // Placeholder for license link; you might need to adjust this based on your application's requirements
+//   if (!license || license === 'None') {
+//     return '';
+//   }
+//   return `[License Link](#)`;
+// }
 
-// TODO: Create a function to generate markdown for README
+//function to create the readme section for the license
+function renderLicenseSection(license) {
+  if (!license || license === 'None') {
+    return '';
+  }
+  return `
+## License
+
+${renderLicenseBadge(license)}  
+This project is licensed under the ${license} license. 
+
+  `;
+}
+
+
+// This is the function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.project}
   
-    ${data.license}
+  ${renderLicenseSection(data.license)}
 
   ### Description
 
     ${data.description}
-
+  
   ### Table of Contents
-  *Installation
-  *Usage
-  *Contribute
-  *Contact
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribute](#contribute)
+  - [Credits](#credits)
+  - [Contact](#contact)
 
   ## Installation
   To install, run the following command:
@@ -37,9 +59,12 @@ function generateMarkdown(data) {
   ## Contribute
     ${data.contribute}
 
+  ## Credits
+    ${data.credits}
+
   ## Contact
-   Email: ${data.email}
-   GitHub: ${data.github}
+   Email: ${data.email}  
+   GitHub: ${data.github}  
 
 `;
 }
